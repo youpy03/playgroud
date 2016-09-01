@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_topic, only: [:edit, :update, :destroy]
 
   def index
@@ -11,8 +12,12 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topics_params)
+    @topic.user_id = current_user.id
   if @topic.save
     redirect_to topics_path, notice: "タイムラインに投稿しました"
+    NoticeMailer.sendmail_topic(@topic).deliver
+  else
+    render action: 'new'
   end
   end
 
