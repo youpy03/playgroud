@@ -5,10 +5,10 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.sendmail_topic.subject
   #
-  def sendmail_topic
+  def sendmail_topic(topic)
     @topic = topic
 
-    mail to: "youpy_yagi0311@yahoo.co.jp"
-    	 subject: "タイムラインが更新されました"
+    mail to: "youpy_yagi0311@yahoo.co.jp",
+    	 subject: 'タイムラインが更新されました'
   end
 end
