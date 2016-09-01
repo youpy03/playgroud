@@ -1,0 +1,13 @@
+<h1>Topics#index</h1>
+<p>Find me in app/views/topics/index.html.erb</p>
+
+
+<%= link_to "タイムラインに投稿する", new_topic_path %>
+
+<% @topics.each do |topic| %>
+	<p><%= topic.content %></p>
+	<%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+    <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+
+
+<% end %>
