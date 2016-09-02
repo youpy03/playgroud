@@ -31,6 +31,9 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'devise-i18n'
 gem 'faker'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
